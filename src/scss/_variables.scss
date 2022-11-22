@@ -1,0 +1,17 @@
+$base-font-size: 16px;
+$small-font-size: 14px;
+
+$font-family: 'Arial', 'sans-serif';
+
+$main-spacing: 20px;
+$max-width: 1900px;
+
+$breakpoints:(
+    smartphone: (min-width: 460px),
+    smartphone-large: (min-width: 640px),
+    tablet: (min-width: 800px),
+    tablet-large: (min-width: 1024px),
+    desktop-small: (min-width: 1280px),
+    desktop-medium: (min-width: 1600px),
+    desktop-large: (min-width: 1900px),
+);
