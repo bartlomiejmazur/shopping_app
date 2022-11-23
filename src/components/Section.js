@@ -9,8 +9,8 @@ const Section = () => {
     return ( 
         <section>
         <Routes>
-            <Route path="/product" element={<Products/>} exact/>
-            <Route path="/product/:id" element={<Details/>} />
+            <Route  path="/product" element={<Products/>} />
+            <Route exact path="/product/:id" element={<Details/>} />
         </Routes>
         </section>
          );
