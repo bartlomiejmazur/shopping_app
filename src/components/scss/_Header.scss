@@ -1,0 +1,83 @@
+@import '../../scss/variables';
+
+header{
+min-height: 70px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+overflow: hidden;
+    .logo a{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: black;
+    }
+    nav{
+        display: flex;
+        ul{
+            @media (max-width: 700px){
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            background-color: #fff;
+            z-index: 99;
+            opacity: 0.97;
+            transition: 0.5s linear;
+            }
+            li{
+        list-style: none;
+        display: inline-block;
+            a{
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #555;
+                padding: 0 15px;
+                &:hover{
+                    color: lightseagreen;
+                }
+            }
+       } }
+        .nav-cart{
+        cursor: pointer;
+        position: relative;
+            span{
+                position: absolute;
+                top: -12px;
+                right: -7px;
+                background-color: crimson;
+                font-size: 0.6rem;
+                color: white;
+                padding: 3px 5px;
+                border-radius: 50%;
+                z-index: -1;
+            }
+        }
+    }
+    
+}
+
+header .menu, header .close{
+cursor: pointer;
+display: none;
+}
+@media (max-width: 700px){
+    header .menu, header .close{
+    display: block;
+    }
+    header .close{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    }
+    header ul.toggle{
+        top:0;
+    }
+}
+
+
+
