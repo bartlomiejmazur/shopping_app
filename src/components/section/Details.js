@@ -10,7 +10,7 @@ import '../scss/_Details.scss';
 
 const Details = () => {
     const [product, setProduct] = useState([])
-    const {products} = useContext(AppContext);
+    const {products, addCart} = useContext(AppContext);
     const {id} = useParams()
 
    const getProduct = () =>{
@@ -40,7 +40,7 @@ const Details = () => {
                         <Colors colors={item.colors}/>
                         <p>{item.description}</p>
                         <p>{item.content}</p>
-                        <NavLink to="/cart" className="cart">
+                        <NavLink to="/cart" className="cart" onClick={() => addCart(item.id)}>
                             Add to cart
                         </NavLink>
                     </div>
