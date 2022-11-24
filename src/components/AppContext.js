@@ -3,6 +3,15 @@ import React, {createContext, useState} from 'react';
  export const AppContext = createContext();
 
  const AppProvider = ({children}) => {
+    const [cart, setCart] = useState([])
+
+    const addCart = (id) =>{
+        const data = products.filter(product =>(
+               product.id === id
+            ))
+            setCart([...cart,...data])
+            
+    }
 
     const [products, setProducts] = useState([{
         
@@ -68,7 +77,7 @@ import React, {createContext, useState} from 'react';
 ])
        
     return ( 
-        <AppContext.Provider value ={{products, setProducts}}>
+        <AppContext.Provider value ={{products, setProducts, addCart, cart}}>
             {children}
         </AppContext.Provider>
         );
