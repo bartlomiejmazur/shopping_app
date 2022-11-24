@@ -1,17 +1,67 @@
 import React, {createContext, useState} from 'react';
 
+
  export const AppContext = createContext();
 
  const AppProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    const [total, setTotal] = useState(0)
 
     const addCart = (id) =>{
-        const data = products.filter(product =>(
-               product.id === id
+        const check = cart.every(item =>(
+                item.id !== id
             ))
-            setCart([...cart,...data])
-            
+            if(check){
+                const data = products.filter(product =>(
+                    product.id === id
+                 ))
+                 setCart([...cart,...data])
+                 
+            }else{
+                alert("The product has been added to cart.")
+            }
     }
+
+    const reduction = id =>{
+       cart.forEach(item => {
+        if(item.id === id){
+            item.count === 1 ? item.count = 1 : item.count -=1;
+        }  
+    })
+      setCart([...cart]) 
+      getTotal()
+    }
+    const increase = id =>{
+        cart.forEach(item => {
+            if(item.id === id){
+                item.count += 1;
+            }
+        })
+        setCart([...cart])
+        getTotal()
+    }
+    const removeProduct = id =>{
+        if(window.confirm("Do you want to delete this product?")){
+            cart.forEach((item, index) => {
+                if(item.id === id){
+                    cart.splice(index, 1)
+                }
+            })
+            setCart([...cart])
+            getTotal()
+        }
+      
+    }
+    const getTotal = () =>{
+        const total = cart.reduce((prev, item) => {
+            return prev + (item.price * item.count);
+        },0)
+        setTotal(total)
+    }
+    
+   
+
+  
 
     const [products, setProducts] = useState([{
         
@@ -77,7 +127,7 @@ import React, {createContext, useState} from 'react';
 ])
        
     return ( 
-        <AppContext.Provider value ={{products, setProducts, addCart, cart}}>
+        <AppContext.Provider value ={{products, addCart, cart, setProducts, reduction, increase, removeProduct, total, getTotal}}>
             {children}
         </AppContext.Provider>
         );
