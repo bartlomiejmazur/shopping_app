@@ -1,16 +1,20 @@
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import './scss/_Header.scss';
 
 import Menu from './svg/menu.svg';
 import Close from './svg/xmark-solid.svg';
 import CartIcon from './svg/cart-shopping-solid.svg';
+import { AppContext } from './AppContext';
 
-import { NavLink } from 'react-router-dom';
+import './scss/_Header.scss';
+
 
 
 const Header = () => {
+    const {cart} = useContext(AppContext);
+    
     const [toggle, setToggle] = useState(false);
 
     const menuToggleBtn = () => setToggle(!toggle);
@@ -34,7 +38,7 @@ const Header = () => {
                         <img src={Close} alt="close icon" width="20" /></li>
                 </ul>
                 <div className="nav-cart">
-                    <span>0</span>
+                    <span>{cart.length}</span>
                     <NavLink to="/cart">
                     <img src={CartIcon} alt="cart icon" width="20" />
                     </NavLink>

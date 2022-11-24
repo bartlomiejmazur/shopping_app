@@ -8,7 +8,7 @@ import '../scss/_Products.scss';
 
 const Products = () => {
 
-    const {products} = useContext(AppContext);
+    const {products, addCart} = useContext(AppContext);
     return ( 
         <div id='product'>
             {
@@ -23,7 +23,7 @@ const Products = () => {
                         </h3>
                         <span>${product.price}</span>
                         <p>${product.description}</p>
-                        <button>Add to card</button>
+                        <button onClick={() => addCart(product.id)}>Add to card</button>
                         </div>
                     </div>
                 ))
