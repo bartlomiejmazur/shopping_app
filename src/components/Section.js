@@ -14,7 +14,7 @@ const Section = () => {
     return ( 
         <section>
         <Routes>
-            <Route  path="/" element={<Products/>} />
+            <Route  path="*" element={<Products/>} />
             <Route  path="/product" element={<Products/>} />
             <Route exact path="/product/:id" element={<Details/>} />
             <Route  path="/cart" element={<Cart/>} />
