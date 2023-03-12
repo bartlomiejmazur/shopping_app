@@ -20,7 +20,7 @@ const Section = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Products />} />
+        <Route path="/shopping_app" element={<Products />} />
         <Route path="*" element={<Error />} />
         <Route path="/product" element={<Products />} />
         <Route exact path="/product/:id" element={<Details />} />

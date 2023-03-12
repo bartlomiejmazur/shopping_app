@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <div className="logo">
         <h1>
-          <NavLink to="/">Shop</NavLink>
+          <NavLink to="/shopping_app">Shop</NavLink>
         </h1>
       </div>
       <nav>
