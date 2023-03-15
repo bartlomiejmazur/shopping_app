@@ -11,4 +11,4 @@
 1. git clone https://github.com/bartlomiejmazur/shopping_app.git
 2. cd .\shopping_app\
 3. npm install.
-4. npm run dev.
+4. npm start.
